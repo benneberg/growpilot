@@ -28,7 +28,7 @@ export const generateAuditReport = async (input: AuditInput): Promise<AuditRepor
     - A summary of findings.
     - Scores (0-100) for SEO, technical, content clarity, docs quality, github maturity, conversion readiness, alignment, and overall confidence.
     - A list of insights with severity, claim, evidence references, and confidence scores.
-    - A list of prioritized recommendations with rationale, steps, expected impact, effort, and owner.
+    - A list of prioritized recommendations. For each recommendation, assign a likely owner from: "engineering", "marketing", "seo", "product", "design", "content". Ensure steps, rationale, and description are tailored to that specific role's expertise and focus. Engineering recommendations should provide code snippets where applicable.
     - A set of initial generated creative assets (ad copy, social posts, landing copy) based on the insights.
     - Comparison findings if competitors are provided.
     - An evidence index mapping source IDs to locations.

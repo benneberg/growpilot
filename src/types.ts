@@ -159,6 +159,7 @@ export type AuditStatus = "queued" | "running" | "partial" | "completed" | "fail
 export type AuditRecord = {
   id: string;
   workspaceId: string;
+  userId?: string;
   status: AuditStatus;
   mode: AuditMode;
   input: AuditInput;

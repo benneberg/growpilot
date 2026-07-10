@@ -11,9 +11,11 @@ import { SettingsView } from "./components/SettingsView";
 import { Toaster } from "./components/ui/Toast";
 import { PageTransition } from "./components/ui/Layout";
 import { Onboarding } from "./components/Onboarding";
+import { useFirebaseAuth } from "./hooks/useFirebaseAuth";
 
 export default function App() {
   const { audits, currentAuditId, isLaunching } = useAuditStore();
+  const { user, loginWithGoogle, logout, loading } = useFirebaseAuth();
   const [activeView, setActiveView] = React.useState<"dashboard" | "history" | "settings">("dashboard");
   const [showOnboarding, setShowOnboarding] = React.useState(false);
 
@@ -32,6 +34,14 @@ export default function App() {
   const currentAudit = audits.find((a) => a.id === currentAuditId);
 
   const renderContent = () => {
+    if (loading) {
+      return (
+        <div className="flex h-[50vh] items-center justify-center">
+          <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-emerald-600"></div>
+        </div>
+      );
+    }
+
     if (currentAudit) {
       if (currentAudit.status === "running") {
         return <AuditProgress />;
@@ -61,6 +71,9 @@ export default function App() {
         <Navbar 
           onNavigate={(view: any) => setActiveView(view)} 
           activeView={activeView}
+          user={user}
+          onLogin={loginWithGoogle}
+          onLogout={logout}
         />
         
         <main className="relative z-0">

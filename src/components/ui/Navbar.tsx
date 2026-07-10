@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Search, History, Settings, User, LogOut, Menu, X } from "lucide-react";
+import { Search, History, Settings, User, LogOut, Menu, X, LogIn } from "lucide-react";
 import { Button } from "./Button";
 import { Container } from "./Layout";
 import { Avatar, AvatarFallback, AvatarImage } from "./Avatar";
@@ -12,7 +12,19 @@ import {
 import { useAuditStore } from "../../store/useAuditStore";
 import { cn } from "../../lib/utils";
 
-export function Navbar({ onNavigate, activeView }: { onNavigate: (view: any) => void, activeView: string }) {
+export function Navbar({ 
+  onNavigate, 
+  activeView, 
+  user, 
+  onLogin, 
+  onLogout 
+}: { 
+  onNavigate: (view: any) => void; 
+  activeView: string;
+  user: any;
+  onLogin: () => void;
+  onLogout: () => void;
+}) {
   const { setCurrentAudit } = useAuditStore();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -75,29 +87,36 @@ export function Navbar({ onNavigate, activeView }: { onNavigate: (view: any) => 
 
           <div className="flex items-center gap-4">
             <div className="hidden md:block">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Avatar className="h-9 w-9 cursor-pointer border-2 border-slate-100 transition-transform hover:scale-105">
-                    <AvatarImage src="https://picsum.photos/seed/user/200" />
-                    <AvatarFallback>JD</AvatarFallback>
-                  </Avatar>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="right" className="w-56">
-                  <DropdownMenuItem onClick={() => onNavigate("settings")}>
-                    <User className="mr-2 h-4 w-4" />
-                    Profile
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => onNavigate("settings")}>
-                    <Settings className="mr-2 h-4 w-4" />
-                    Settings
-                  </DropdownMenuItem>
-                  <div className="my-1 h-px bg-slate-100" />
-                  <DropdownMenuItem className="text-red-600">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    Log Out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Avatar className="h-9 w-9 cursor-pointer border-2 border-slate-100 transition-transform hover:scale-105">
+                      <AvatarImage src={user.photoURL || `https://ui-avatars.com/api/?name=${user.email || 'U'}`} />
+                      <AvatarFallback>{user.email?.[0]?.toUpperCase() || 'U'}</AvatarFallback>
+                    </Avatar>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="right" className="w-56">
+                    <DropdownMenuItem onClick={() => onNavigate("settings")}>
+                      <User className="mr-2 h-4 w-4" />
+                      Profile
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => onNavigate("settings")}>
+                      <Settings className="mr-2 h-4 w-4" />
+                      Settings
+                    </DropdownMenuItem>
+                    <div className="my-1 h-px bg-slate-100" />
+                    <DropdownMenuItem className="text-red-600" onClick={onLogout}>
+                      <LogOut className="mr-2 h-4 w-4" />
+                      Log Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Button variant="outline" size="sm" onClick={onLogin}>
+                  <LogIn className="mr-2 h-4 w-4" />
+                  Sign In
+                </Button>
+              )}
             </div>
 
             <Button
@@ -151,6 +170,31 @@ export function Navbar({ onNavigate, activeView }: { onNavigate: (view: any) => 
               <Settings className="mr-2 h-4 w-4" />
               Settings
             </Button>
+            {user ? (
+              <Button 
+                variant="ghost" 
+                className="justify-start text-red-600"
+                onClick={() => { 
+                  onLogout();
+                  setIsMenuOpen(false); 
+                }}
+              >
+                <LogOut className="mr-2 h-4 w-4" />
+                Log Out
+              </Button>
+            ) : (
+              <Button 
+                variant="ghost" 
+                className="justify-start"
+                onClick={() => { 
+                  onLogin();
+                  setIsMenuOpen(false); 
+                }}
+              >
+                <LogIn className="mr-2 h-4 w-4" />
+                Sign In
+              </Button>
+            )}
           </div>
         </div>
       )}

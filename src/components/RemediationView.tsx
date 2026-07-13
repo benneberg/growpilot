@@ -19,6 +19,120 @@ interface RoleMetadata {
   guidance: string;
 }
 
+interface CodePlaygroundProps {
+  initialCode: string;
+  onCopy: () => void;
+}
+
+export function CodePlayground({ initialCode, onCopy }: CodePlaygroundProps) {
+  const [code, setCode] = React.useState(initialCode);
+  const [activeTab, setActiveTab] = React.useState<"editor" | "preview">("editor");
+  const [iframeSrc, setIframeSrc] = React.useState("");
+
+  const updatePreview = React.useCallback(() => {
+    const srcDocContent = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+          body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            padding: 1.5rem;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+          }
+        </style>
+      </head>
+      <body>
+        ${code}
+      </body>
+      </html>
+    `;
+    setIframeSrc(srcDocContent);
+  }, [code]);
+
+  React.useEffect(() => {
+    if (activeTab === "preview") {
+      updatePreview();
+    }
+  }, [activeTab, updatePreview]);
+
+  return (
+    <div className="mt-4 border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-inner">
+      <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50/85 px-4 py-2.5">
+        <div className="flex gap-2">
+          <button
+            onClick={() => setActiveTab("editor")}
+            className={cn(
+              "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all",
+              activeTab === "editor"
+                ? "bg-white text-indigo-600 shadow-sm border border-slate-200/50"
+                : "text-slate-600 hover:bg-slate-100"
+            )}
+          >
+            Editor
+          </button>
+          <button
+            onClick={() => setActiveTab("preview")}
+            className={cn(
+              "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all",
+              activeTab === "preview"
+                ? "bg-white text-indigo-600 shadow-sm border border-slate-200/50"
+                : "text-slate-600 hover:bg-slate-100"
+            )}
+          >
+            Live Preview
+          </button>
+        </div>
+        
+        <div className="flex items-center gap-2">
+          {activeTab === "preview" && (
+            <button
+              onClick={updatePreview}
+              className="flex items-center gap-1.5 px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg text-xs font-semibold transition-colors border border-indigo-100"
+            >
+              Run Code
+            </button>
+          )}
+          <Button variant="ghost" size="sm" className="h-8 gap-2 text-xs text-slate-500 hover:text-slate-900" onClick={() => onCopy()}>
+            <Copy className="h-3 w-3" />
+            Copy original
+          </Button>
+        </div>
+      </div>
+
+      <div className="p-2 bg-slate-50">
+        {activeTab === "editor" ? (
+          <div className="relative font-mono text-xs text-slate-300 rounded-xl overflow-hidden bg-slate-950 border border-slate-900 shadow-lg">
+            <textarea
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              className="w-full h-64 p-4 font-mono text-xs bg-transparent text-slate-300 focus:outline-none resize-y border-none"
+              spellCheck={false}
+            />
+          </div>
+        ) : (
+          <div className="w-full bg-white border border-slate-200 rounded-xl overflow-hidden h-64 shadow-inner">
+            <iframe
+              srcDoc={iframeSrc}
+              title="Code Preview Sandbox"
+              className="w-full h-full border-none"
+              sandbox="allow-scripts"
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function RemediationView({ recommendations }: { recommendations: Recommendation[] }) {
   const { addToast } = useToast();
   const [selectedRole, setSelectedRole] = React.useState<RoleType>("engineering");
@@ -294,21 +408,14 @@ export function RemediationView({ recommendations }: { recommendations: Recommen
 
                       {rec.codeSnippet && (
                         <div className="space-y-2 pt-2 border-t border-slate-100">
-                          <div className="flex items-center justify-between">
-                            <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                              <Code className="h-4 w-4 text-blue-600 shrink-0" />
-                              Actionable Code Fix / Configuration
-                            </h4>
-                            <Button variant="ghost" size="sm" className="h-8 gap-2 text-xs text-slate-500" onClick={() => handleCopy(rec.codeSnippet!)}>
-                              <Copy className="h-3 w-3" />
-                              Copy Code
-                            </Button>
-                          </div>
-                          <div className="relative overflow-hidden rounded-xl bg-slate-900 p-4 font-mono text-xs text-slate-300">
-                            <pre className="overflow-x-auto">
-                              <code>{rec.codeSnippet}</code>
-                            </pre>
-                          </div>
+                          <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                            <Code className="h-4 w-4 text-blue-600 shrink-0" />
+                            Actionable Code Fix / Interactive Sandbox
+                          </h4>
+                          <CodePlayground
+                            initialCode={rec.codeSnippet}
+                            onCopy={() => handleCopy(rec.codeSnippet!)}
+                          />
                         </div>
                       )}
                     </CardContent>

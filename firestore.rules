@@ -1,11 +1,43 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+    // Catch-all default-deny
+    match /{document=**} {
+      allow read, write: if false;
     }
+
+    // Global helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+    function incoming() {
+      return request.resource.data;
+    }
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidAuditRecord(data) {
+      return data.keys().hasAll(['id', 'workspaceId', 'status', 'mode', 'createdAt', 'updatedAt'])
+          && data.id is string && data.id.size() <= 128
+          && data.workspaceId is string && data.workspaceId.size() <= 128
+          && data.status is string && data.status.size() <= 64
+          && data.mode is string && data.mode.size() <= 64
+          && data.createdAt is string && data.createdAt.size() <= 64
+          && data.updatedAt is string && data.updatedAt.size() <= 64
+          && (!data.keys().contains('userId') || (data.userId is string && data.userId.size() <= 128))
+          && (!data.keys().contains('input') || data.input is map)
+          && (!data.keys().contains('report') || data.report is map);
+    }
+
     match /audits/{auditId} {
-      allow read, write: if request.auth != null;
+      allow get, list: if isSignedIn() && existing().userId == request.auth.uid;
+      allow create: if isSignedIn() && isValidId(auditId) && isValidAuditRecord(incoming()) && incoming().userId == request.auth.uid;
+      allow update: if isSignedIn() && isValidId(auditId) && isValidAuditRecord(incoming()) && incoming().userId == request.auth.uid && existing().userId == request.auth.uid;
+      allow delete: if isSignedIn() && existing().userId == request.auth.uid;
     }
   }
 }

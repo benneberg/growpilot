@@ -5,6 +5,8 @@ import { collection, query, where, getDocs, setDoc, doc, onSnapshot } from 'fire
 import { useAuditStore } from '../store/useAuditStore';
 import { AuditRecord } from '../types';
 
+import { handleFirestoreError, OperationType } from '../lib/firebaseErrors';
+
 export function useFirebaseAuth() {
   const [user, setUser] = useState<User | null>(null);
   const { setAudits, audits } = useAuditStore();
@@ -16,7 +18,8 @@ export function useFirebaseAuth() {
       
       if (currentUser) {
         // Load audits from Firestore
-        const q = query(collection(db, 'audits'), where('userId', '==', currentUser.uid));
+        const pathForAudits = 'audits';
+        const q = query(collection(db, pathForAudits), where('userId', '==', currentUser.uid));
         const unsubscribeSnapshot = onSnapshot(q, (querySnapshot) => {
           const loadedAudits: AuditRecord[] = [];
           querySnapshot.forEach((doc) => {
@@ -31,7 +34,11 @@ export function useFirebaseAuth() {
           localOnly.forEach(async (audit) => {
             if (!audit.userId) {
               const auditWithUser = { ...audit, userId: currentUser.uid };
-              await setDoc(doc(db, 'audits', audit.id), auditWithUser);
+              try {
+                await setDoc(doc(db, pathForAudits, audit.id), auditWithUser);
+              } catch (error) {
+                handleFirestoreError(error, OperationType.WRITE, `${pathForAudits}/${audit.id}`);
+              }
             }
           });
 
@@ -41,6 +48,8 @@ export function useFirebaseAuth() {
           if (loadedAudits.length > 0) {
               setAudits(merged);
           }
+        }, (error) => {
+          handleFirestoreError(error, OperationType.GET, pathForAudits);
         });
         
         setLoading(false);

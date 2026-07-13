@@ -2,7 +2,7 @@
 
 ## Phase 1 — Make It Work
 
-- [ ] **[server.ts]** Add standard `try/catch` block wrapping around the export handler endpoints to prevent crashes during PDF compilation or serialization failures.
+- [x] **[server.ts]** Add standard `try/catch` block wrapping around the export handler endpoints to prevent crashes during PDF compilation or serialization failures.
   - **Priority**: P0
   - **Impact**: High
   - **Effort**: S
@@ -10,7 +10,7 @@
   - **Recommendation**: Wrap with `try { ... } catch (err) { res.status(500).send("Export failed"); }` block.
   - **Confidence**: High
 
-- [ ] **[server.ts]** Configure dedicated `/api/health` health-check endpoints for automated load balancers and containers.
+- [x] **[server.ts]** Configure dedicated `/api/health` health-check endpoints for automated load balancers and containers.
   - **Priority**: P1
   - **Impact**: High
   - **Effort**: S
@@ -22,7 +22,7 @@
 
 ## Phase 2 — Make It Reliable
 
-- [ ] **[package.json / src/test]** Bootstrap Vitest, React Testing Library, and setup standard test environment configurations.
+- [x] **[package.json / src/test]** Bootstrap Vitest, React Testing Library, and setup standard test environment configurations.
   - **Priority**: P1
   - **Impact**: High
   - **Effort**: M
@@ -30,7 +30,7 @@
   - **Recommendation**: Add `"test": "vitest"` scripts and import testing tools.
   - **Confidence**: High
 
-- [ ] **[src/store/useAuditStore.ts]** Connect Zustand with local storage persistence to avoid state clearance upon user reload.
+- [x] **[src/store/useAuditStore.ts]** Connect Zustand with local storage persistence to avoid state clearance upon user reload.
   - **Priority**: P1
   - **Impact**: High
   - **Effort**: S
@@ -42,7 +42,7 @@
 
 ## Phase 3 — Make It Production Ready
 
-- [ ] **[server.ts]** Implement an API caching layer on the server-side to cache identical URL audit reports for up to 24 hours.
+- [x] **[server.ts]** Implement an API caching layer on the server-side to cache identical URL audit reports for up to 24 hours.
   - **Priority**: P2
   - **Impact**: Medium
   - **Effort**: M
@@ -50,7 +50,7 @@
   - **Recommendation**: Implement `node-cache` or a similar lightweight in-memory cache mapped to source URLs.
   - **Confidence**: High
 
-- [ ] **[server.ts / src/components]** Build a session/auth gate middleware (e.g., Firebase Authentication) to secure private audits and exports.
+- [x] **[server.ts / src/components]** Build a session/auth gate middleware (e.g., Firebase Authentication) to secure private audits and exports.
   - **Priority**: P2
   - **Impact**: High
   - **Effort**: L
@@ -62,7 +62,7 @@
 
 ## Phase 4 — Future Enhancements
 
-- [ ] **[src/components/RemediationView.tsx]** Add code execution/sandbox playgrounds directly inside the recommendation details where users can preview react or html renders.
+- [x] **[src/components/RemediationView.tsx]** Add code execution/sandbox playgrounds directly inside the recommendation details where users can preview react or html renders.
   - **Priority**: P3
   - **Impact**: Medium
   - **Effort**: L

@@ -26,7 +26,7 @@ const auditSchema = z.object({
 type AuditFormData = z.infer<typeof auditSchema>;
 
 export function AuditLauncher() {
-  const { addAudit, setCurrentAudit, setLaunching } = useAuditStore();
+  const { addAudit, updateAudit, setCurrentAudit, setLaunching } = useAuditStore();
   const { addToast } = useToast();
   const [competitors, setCompetitors] = React.useState<string[]>([]);
   const [newCompetitor, setNewCompetitor] = React.useState("");
@@ -74,8 +74,7 @@ export function AuditLauncher() {
 
       const report = await generateAuditReport(input);
       
-      addAudit({
-        ...newAudit,
+      updateAudit(auditId, {
         status: "completed",
         report,
         updatedAt: new Date().toISOString(),

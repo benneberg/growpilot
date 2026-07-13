@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 import { AuditRecord, AuditInput, AuditMode } from '../types';
 import { db, auth } from '../lib/firebase';
 import { doc, setDoc } from 'firebase/firestore';
+import { handleFirestoreError, OperationType } from '../lib/firebaseErrors';
 
 interface AuditState {
   audits: AuditRecord[];
@@ -29,10 +30,11 @@ export const useAuditStore = create<AuditState>()(
         set((state) => ({ audits: [auditWithUser, ...state.audits] }));
         
         if (currentUser) {
+          const path = `audits/${auditWithUser.id}`;
           try {
             await setDoc(doc(db, 'audits', auditWithUser.id), auditWithUser);
           } catch (e) {
-            console.error("Failed to save to Firestore", e);
+            handleFirestoreError(e, OperationType.WRITE, path);
           }
         }
       },
@@ -45,10 +47,11 @@ export const useAuditStore = create<AuditState>()(
         if (currentUser) {
           const updatedAudit = get().audits.find(a => a.id === id);
           if (updatedAudit) {
+            const path = `audits/${id}`;
             try {
               await setDoc(doc(db, 'audits', id), updatedAudit, { merge: true });
             } catch (e) {
-              console.error("Failed to update in Firestore", e);
+              handleFirestoreError(e, OperationType.WRITE, path);
             }
           }
         }

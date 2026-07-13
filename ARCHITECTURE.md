@@ -1,10 +1,10 @@
 # ARCHITECTURE
 
 ## HIGH-LEVEL ARCHITECTURE
-GrowPilot is a modern full-stack web application designed with a single-page frontend and a lightweight companion backend proxy.
+GrowPilot is a modern full-stack web application designed with a single-page frontend and a lightweight companion backend proxy, integrated with robust server-side caching and a cloud database.
 - **Frontend**: Single Page Application built on React 19, Vite 6, and styled with Tailwind CSS. Interactivity and layout transitions are powered by Framer Motion.
-- **Backend**: Express (Node.js) server. It performs two roles: serves compiled frontend static files in production, and acts as a secure, authenticated proxy for downstream Gemini API requests and PDF rendering tasks.
-- **Confidence**: High (Observed in `package.json`, `server.ts`, and `src/main.tsx`).
+- **Backend**: Express (Node.js) server. It serves compiled frontend static files in production, acts as a secure proxy for Gemini API requests and PDF rendering, and implements a server-side cache for identical requests.
+- **Database / Auth**: Firebase Firestore provides a real-time, durable cloud persistence layer. Firebase Authentication handles secure user sessions and guards individual user records.
 
 ---
 
@@ -23,11 +23,15 @@ GrowPilot is a modern full-stack web application designed with a single-page fro
 |   +-------------------+  +--------------------------------+  |
 |                                                              |
 |   +-------------------+  +--------------------------------+  |
-|   |   Creative View   |  |        Zustand Storage         |  |
+|   |   Creative Lab    |  |     Interactive Sandbox        |  |
+|   +-------------------+  +--------------------------------+  |
+|                                                              |
+|   +-------------------+  +--------------------------------+  |
+|   |   Firebase Auth   |  |     Zustand Cloud Sync Store   |  |
 |   +-------------------+  +--------------------------------+  |
 +------------------------------+-------------------------------+
                                |
-                   HTTPS       |  API Routes
+                    HTTPS      |  API Routes / Firestore Sync
                                v
 +--------------------------------------------------------------+
 |                        EXPRESS BACKEND                       |
@@ -37,7 +41,16 @@ GrowPilot is a modern full-stack web application designed with a single-page fro
 |   +-------------------+  +--------------------------------+  |
 |                                                              |
 |   +-------------------+  +--------------------------------+  |
-|   |  PDFKit Compiler  |  |      Asset Static Serving      |  |
+|   |  PDFKit Compiler  |  |    Node-Cache Server Layer     |  |
+|   +-------------------+  +--------------------------------+  |
++------------------------------+-------------------------------+
+                               |
+                               v
++--------------------------------------------------------------+
+|                      FIREBASE BACKEND                        |
+|                                                              |
+|   +-------------------+  +--------------------------------+  |
+|   |   Firestore DB    |  |     Firebase Authentication    |  |
 |   +-------------------+  +--------------------------------+  |
 +--------------------------------------------------------------+
 ```
@@ -51,7 +64,10 @@ Collects audit scopes (URLs, keywords, mode parameters) and starts the audit tri
 ### 3. `RemediationView.tsx`
 Interactive growth matrix displaying customized, role-oriented fixes (Engineering, SEO, Marketing, Product, Design, Content) along with copyable source code.
 
-### 4. `CreativeView.tsx`
+### 4. `CodePlayground` (Sandbox)
+Embedded interactive code playground inside `RemediationView.tsx` where developers can tweak HTML/Tailwind fixes in a live editable text area and run code inside a sandboxed iframe with instant visual rendering.
+
+### 5. `CreativeView.tsx` (Creative Lab)
 Marketing variance lab compiling ad/social/landing copy assets with direct additions using Gemini model loops.
 
 ---
@@ -59,47 +75,26 @@ Marketing variance lab compiling ad/social/landing copy assets with direct addit
 ## DATA FLOW
 
 ### Source of Truth
-- **Transient Memory**: The central source of truth for the active audit list and active audit state is the client-side Zustand store `useAuditStore`.
-- **Database**: **None**.
+- **Durable Cloud Persistence**: Firebase Firestore (`audits` collection) is the primary remote source of truth for user-generated audit records. Each audit is tied to a user ID.
+- **Client Sync**: Zustand store `useAuditStore` manages transient local state with persistent `localStorage` fallback, syncing with Firestore records via real-time snapshot listeners whenever a user is authenticated.
 
 ### State Management Flow
-1. User provides targets in `AuditLauncher`.
-2. Launcher invokes backend API routes.
-3. Server executes structured outputs querying through Gemini.
-4. Server returns structured JSON payload to React.
-5. Zustand store saves the new record and transitions layouts.
-
-- **Confidence**: High (Directly verified by the structure in `useAuditStore.ts` and `gemini.ts`).
-
----
-
-## EXTERNAL INTEGRATIONS
-- **Google Gemini API**: Accessed securely on the server-side via the `@google/genai` Node.js SDK, utilizing the `gemini-1.5-pro` model with strict schema validation.
-- **Confidence**: High (Directly supported by `/src/lib/gemini.ts`).
+1. User logs in (via Google or Anonymous Auth) or accesses as a guest.
+2. User triggers a new website audit in `AuditLauncher`.
+3. The launcher posts to `/api/v1/generate-audit`.
+4. The server checks the `NodeCache` layer for identical URL + mode queries. If a hit is found, it serves it instantly. If not, it requests a structured audit report from Gemini.
+5. The frontend adds the active audit to Zustand and automatically persists the record to Firestore if the user is authenticated.
+6. The user can view, export, edit, and preview recommendations in real-time.
 
 ---
 
-## DEPLOYMENT MODEL
-- **Container Ingress**: The application compiles to static assets inside `/dist` using `vite build`.
-- **Server Binding**: The Express server binds to host `0.0.0.0` and port `3000`, rendering it ready for Cloud Run, Docker-compose, or Kubernetes pods.
-- **Confidence**: High (Verified in `server.ts` and `package.json` scripts).
+## SECURITY & COMPLIANCE
+- **Google Gemini API**: Accessed securely on the server-side via the `@google/genai` Node.js SDK, keeping secrets out of the browser.
+- **Firestore Security Rules**: Fully hardened rules in `firestore.rules` enforcing strict tiered-identity checks (only authenticated owners can read or write their own documents) and input schema validations.
+- **Structured Error Tracing**: Employs detailed custom error builders (`handleFirestoreError`) to diagnose database permissions and state issues reliably.
 
 ---
 
-## OBSERVABILITY MODEL
-- **Terminal output**: Minimal stdout reporting on port initialization.
-- **Telemetry**: No APM tracking, profiling, or error sinks are defined.
-- **Confidence**: High.
-
----
-
-## ARCHITECTURAL RISKS
-1. **Volatile Local Storage**: All reports are in-memory. Clearing browser cache resets work.
-2. **Synchronous Backend Blocks**: On-the-fly PDF creation and API fetching run on the main node thread. Under high concurrent traffic, this could block event loops.
-
----
-
-## RECOMMENDED IMPROVEMENTS
-1. **Firebase integration**: Add Firestore database synchronization to enable a durable, persistent historical timeline.
-2. **Worker threads**: Move PDF compilation and long-running API fetches to background worker threads.
-3. **Structured Logging**: Introduce `pino` to get JSON structured logs for security reviews.
+## TESTING
+- **Vitest & React Testing Library**: Built-in test suite covering Zustand state mutations, local persistence, component rendering, and UI states.
+- **Run Tests**: `npm run test` or `npm run test:ui`.

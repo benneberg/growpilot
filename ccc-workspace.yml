@@ -1,0 +1,15 @@
+name: applet
+version: 1
+
+services:
+  growpilot:
+    path: .
+    type: fullstack
+    languages:
+      - typescript
+    tags:
+      - core
+      - api
+      - frontend
+      - auth
+    description: "GrowPilot fullstack web app with Express server and React client"

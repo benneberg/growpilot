@@ -11,7 +11,7 @@ GrowPilot acts as an on-demand growth and technical advisory squad — analyzing
 
 ---
 
-## ✨ Features
+## Features
 
 - **Multi-Scope Intelligence Scans:** Audits websites, GitHub repositories, and documentation pages with structured Gemini AI analysis.
 - **Role-Specific Action Plans:** Automatically categorizes recommendations by owner (Engineering, SEO Specialist, Marketing, Product, Content, and UX/UI Design) with tailored implementation checklists.
@@ -22,7 +22,7 @@ GrowPilot acts as an on-demand growth and technical advisory squad — analyzing
 
 ---
 
-## 🚀 Installation
+## Installation
 
 Ensure you have [Node.js (v20+ LTS recommended)](https://nodejs.org/) installed:
 

@@ -1,7 +1,8 @@
 {
-  "name": "react-example",
+  "name": "growpilot",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "AI-powered growth intelligence platform for website audits, product understanding, and competitive benchmarking.",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
@@ -10,7 +11,9 @@
     "start": "node dist/server.cjs",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "test": "vitest run"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",

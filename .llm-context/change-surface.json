@@ -1,0 +1,898 @@
+{
+  "_meta": {
+    "generated": "2026-08-27 10:22 UTC",
+    "total_files": 63,
+    "scored_files": 63,
+    "weights": {
+      "fan_in": 0.4,
+      "recency": 0.25,
+      "pattern_density": 0.25,
+      "size": 0.1
+    },
+    "note": "Files ranked by likelihood of needing edits when implementing a change. fan_in=centrality, recency=recent activity, pattern_density=business logic density, size=inverse file size."
+  },
+  "files": [
+    {
+      "path": "src/lib/utils.ts",
+      "score": 0.7481,
+      "imported_by_count": 82,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 1.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.981
+      },
+      "rank": 1
+    },
+    {
+      "path": "src/components/ui/Card.tsx",
+      "score": 0.5643,
+      "imported_by_count": 46,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.561,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.899
+      },
+      "rank": 2
+    },
+    {
+      "path": "src/components/ui/Badge.tsx",
+      "score": 0.5197,
+      "imported_by_count": 36,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.439,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.941
+      },
+      "rank": 3
+    },
+    {
+      "path": "src/types.ts",
+      "score": 0.5111,
+      "imported_by_count": 37,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.451,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.806
+      },
+      "rank": 4
+    },
+    {
+      "path": "src/components/ui/Button.tsx",
+      "score": 0.5102,
+      "imported_by_count": 35,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.427,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.895
+      },
+      "rank": 5
+    },
+    {
+      "path": "src/store/useAuditStore.ts",
+      "score": 0.4453,
+      "imported_by_count": 22,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.268,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.88
+      },
+      "rank": 6
+    },
+    {
+      "path": "src/components/ui/Progress.tsx",
+      "score": 0.4246,
+      "imported_by_count": 16,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.195,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.965
+      },
+      "rank": 7
+    },
+    {
+      "path": "src/components/ui/Toast.tsx",
+      "score": 0.4153,
+      "imported_by_count": 16,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.195,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.873
+      },
+      "rank": 8
+    },
+    {
+      "path": "src/components/ui/Input.tsx",
+      "score": 0.3947,
+      "imported_by_count": 10,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.122,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.959
+      },
+      "rank": 9
+    },
+    {
+      "path": "src/components/ui/Tabs.tsx",
+      "score": 0.3837,
+      "imported_by_count": 10,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.122,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.849
+      },
+      "rank": 10
+    },
+    {
+      "path": "src/components/ui/Layout.tsx",
+      "score": 0.3743,
+      "imported_by_count": 6,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.073,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.95
+      },
+      "rank": 11
+    },
+    {
+      "path": "src/components/ui/Label.tsx",
+      "score": 0.3673,
+      "imported_by_count": 4,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.049,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.978
+      },
+      "rank": 12
+    },
+    {
+      "path": "src/lib/gemini.ts",
+      "score": 0.3644,
+      "imported_by_count": 4,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.049,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.949
+      },
+      "rank": 13
+    },
+    {
+      "path": "src/components/ui/DropdownMenu.tsx",
+      "score": 0.3619,
+      "imported_by_count": 6,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.073,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.826
+      },
+      "rank": 14
+    },
+    {
+      "path": "src/lib/firebase.ts",
+      "score": 0.3612,
+      "imported_by_count": 3,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.037,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.965
+      },
+      "rank": 15
+    },
+    {
+      "path": "src/components/ui/Skeleton.tsx",
+      "score": 0.3583,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.986
+      },
+      "rank": 16
+    },
+    {
+      "path": "src/components/ui/Separator.tsx",
+      "score": 0.3571,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.974
+      },
+      "rank": 17
+    },
+    {
+      "path": "src/components/ui/Textarea.tsx",
+      "score": 0.356,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.962
+      },
+      "rank": 18
+    },
+    {
+      "path": "src/components/ui/Select.tsx",
+      "score": 0.3559,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.961
+      },
+      "rank": 19
+    },
+    {
+      "path": "src/components/ui/Switch.tsx",
+      "score": 0.3541,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.944
+      },
+      "rank": 20
+    },
+    {
+      "path": "src/components/ui/Avatar.tsx",
+      "score": 0.3538,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.94
+      },
+      "rank": 21
+    },
+    {
+      "path": "src/components/ui/Tooltip.tsx",
+      "score": 0.3534,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.936
+      },
+      "rank": 22
+    },
+    {
+      "path": "src/components/AuditReport.tsx",
+      "score": 0.3532,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.934
+      },
+      "rank": 23
+    },
+    {
+      "path": "src/lib/firebaseErrors.ts",
+      "score": 0.3529,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.932
+      },
+      "rank": 24
+    },
+    {
+      "path": "src/components/ui/Footer.tsx",
+      "score": 0.3527,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.93
+      },
+      "rank": 25
+    },
+    {
+      "path": "tests/setup.ts",
+      "score": 0.35,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 1.0
+      },
+      "rank": 26
+    },
+    {
+      "path": "src/main.tsx",
+      "score": 0.349,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.99
+      },
+      "rank": 27
+    },
+    {
+      "path": "vitest.config.ts",
+      "score": 0.3489,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.989
+      },
+      "rank": 28
+    },
+    {
+      "path": "src/components/ui/ScrollArea.tsx",
+      "score": 0.3481,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.981
+      },
+      "rank": 29
+    },
+    {
+      "path": "src/components/ui/Table.tsx",
+      "score": 0.3469,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.871
+      },
+      "rank": 30
+    },
+    {
+      "path": "vite.config.ts",
+      "score": 0.3464,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.964
+      },
+      "rank": 31
+    },
+    {
+      "path": "src/components/ui/Checkbox.tsx",
+      "score": 0.3446,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.946
+      },
+      "rank": 32
+    },
+    {
+      "path": "src/App.tsx",
+      "score": 0.3445,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.847
+      },
+      "rank": 33
+    },
+    {
+      "path": "src/hooks/useFirebaseAuth.ts",
+      "score": 0.3433,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.836
+      },
+      "rank": 34
+    },
+    {
+      "path": "src/components/ui/Button.test.tsx",
+      "score": 0.3428,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.928
+      },
+      "rank": 35
+    },
+    {
+      "path": "src/components/ScoreCards.tsx",
+      "score": 0.3416,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.916
+      },
+      "rank": 36
+    },
+    {
+      "path": "src/store/useAuditStore.test.ts",
+      "score": 0.3412,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.912
+      },
+      "rank": 37
+    },
+    {
+      "path": "src/components/AuditTabs.tsx",
+      "score": 0.3409,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.811
+      },
+      "rank": 38
+    },
+    {
+      "path": "src/components/ExportActions.tsx",
+      "score": 0.3403,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.806
+      },
+      "rank": 39
+    },
+    {
+      "path": "src/components/ui/Dialog.tsx",
+      "score": 0.3375,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.875
+      },
+      "rank": 40
+    },
+    {
+      "path": "src/components/AuditProgress.tsx",
+      "score": 0.3369,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.772
+      },
+      "rank": 41
+    },
+    {
+      "path": "src/components/EvidenceView.tsx",
+      "score": 0.3356,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.758
+      },
+      "rank": 42
+    },
+    {
+      "path": "src/components/CompetitorView.tsx",
+      "score": 0.3343,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.746
+      },
+      "rank": 43
+    },
+    {
+      "path": "src/components/ReportHeader.tsx",
+      "score": 0.3328,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.731
+      },
+      "rank": 44
+    },
+    {
+      "path": "src/components/DocsGithubView.tsx",
+      "score": 0.3328,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.73
+      },
+      "rank": 45
+    },
+    {
+      "path": "src/components/TechnicalSEOView.tsx",
+      "score": 0.3328,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.73
+      },
+      "rank": 46
+    },
+    {
+      "path": "src/components/ContentMessagingView.tsx",
+      "score": 0.3327,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.729
+      },
+      "rank": 47
+    },
+    {
+      "path": "src/components/HistoryView.tsx",
+      "score": 0.3317,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.72
+      },
+      "rank": 48
+    },
+    {
+      "path": "src/components/FindingsPanel.tsx",
+      "score": 0.3316,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.816
+      },
+      "rank": 49
+    },
+    {
+      "path": "src/components/PriorityMatrix.tsx",
+      "score": 0.331,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.81
+      },
+      "rank": 50
+    },
+    {
+      "path": "src/components/HistorySidebar.tsx",
+      "score": 0.331,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.81
+      },
+      "rank": 51
+    },
+    {
+      "path": "src/components/SettingsView.tsx",
+      "score": 0.326,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.662
+      },
+      "rank": 52
+    },
+    {
+      "path": "src/components/AuditOverview.tsx",
+      "score": 0.3255,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.658
+      },
+      "rank": 53
+    },
+    {
+      "path": "src/components/CreativeLab.tsx",
+      "score": 0.3236,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.736
+      },
+      "rank": 54
+    },
+    {
+      "path": "src/components/EvidenceExplorer.tsx",
+      "score": 0.3235,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.735
+      },
+      "rank": 55
+    },
+    {
+      "path": "src/components/ui/Navbar.tsx",
+      "score": 0.3234,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.637
+      },
+      "rank": 56
+    },
+    {
+      "path": "src/components/Onboarding.tsx",
+      "score": 0.319,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.592
+      },
+      "rank": 57
+    },
+    {
+      "path": "src/components/RemediationLab.tsx",
+      "score": 0.3187,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.687
+      },
+      "rank": 58
+    },
+    {
+      "path": "src/components/Dashboard.tsx",
+      "score": 0.318,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.583
+      },
+      "rank": 59
+    },
+    {
+      "path": "src/components/CreativeView.tsx",
+      "score": 0.314,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.542
+      },
+      "rank": 60
+    },
+    {
+      "path": "src/components/AuditLauncher.tsx",
+      "score": 0.3024,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.427
+      },
+      "rank": 61
+    },
+    {
+      "path": "server.ts",
+      "score": 0.2746,
+      "imported_by_count": 0,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.0,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.246
+      },
+      "rank": 62
+    },
+    {
+      "path": "src/components/RemediationView.tsx",
+      "score": 0.2598,
+      "imported_by_count": 2,
+      "days_since_modified": 0.0,
+      "pattern_hits": 0,
+      "factors": {
+        "fan_in": 0.024,
+        "recency": 0.5,
+        "pattern_density": 0.5,
+        "size": 0.0
+      },
+      "rank": 63
+    }
+  ]
+}

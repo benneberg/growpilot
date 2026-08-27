@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "generated": "2026-08-27 10:22 UTC",
+    "total_types": 23,
+    "note": "TypeScript type cross-reference. used_in lists files that explicitly import each type."
+  },
+  "types": {
+    "AuditInput": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/AuditLauncher.tsx",
+        "src/lib/gemini.ts",
+        "src/store/useAuditStore.ts"
+      ]
+    },
+    "AuditMode": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/AuditLauncher.tsx",
+        "src/store/useAuditStore.ts"
+      ]
+    },
+    "AuditRecord": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/hooks/useFirebaseAuth.ts",
+        "src/store/useAuditStore.ts"
+      ]
+    },
+    "AuditReport": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/App.tsx",
+        "src/components/AuditOverview.tsx",
+        "src/components/AuditTabs.tsx",
+        "src/components/CreativeView.tsx",
+        "src/lib/gemini.ts"
+      ]
+    },
+    "AuditScores": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/ScoreCards.tsx"
+      ]
+    },
+    "AuditStatus": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": []
+    },
+    "BadgeProps": {
+      "defined_in": "src/components/ui/Badge.tsx",
+      "kind": "interface",
+      "used_in": []
+    },
+    "ButtonProps": {
+      "defined_in": "src/components/ui/Button.tsx",
+      "kind": "interface",
+      "used_in": []
+    },
+    "CheckboxProps": {
+      "defined_in": "src/components/ui/Checkbox.tsx",
+      "kind": "interface",
+      "used_in": []
+    },
+    "ComparisonFinding": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/CompetitorView.tsx"
+      ]
+    },
+    "EvidenceRef": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/CompetitorView.tsx",
+        "src/components/EvidenceExplorer.tsx",
+        "src/components/EvidenceView.tsx"
+      ]
+    },
+    "FirestoreErrorInfo": {
+      "defined_in": "src/lib/firebaseErrors.ts",
+      "kind": "interface",
+      "used_in": []
+    },
+    "GeneratedAsset": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/CreativeLab.tsx",
+        "src/components/CreativeView.tsx",
+        "src/lib/gemini.ts"
+      ]
+    },
+    "InputProps": {
+      "defined_in": "src/components/ui/Input.tsx",
+      "kind": "interface",
+      "used_in": []
+    },
+    "Insight": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/AuditOverview.tsx",
+        "src/components/ContentMessagingView.tsx",
+        "src/components/DocsGithubView.tsx",
+        "src/components/FindingsPanel.tsx",
+        "src/components/TechnicalSEOView.tsx",
+        "src/lib/gemini.ts"
+      ]
+    },
+    "OperationType": {
+      "defined_in": "src/lib/firebaseErrors.ts",
+      "kind": "enum",
+      "used_in": [
+        "src/hooks/useFirebaseAuth.ts",
+        "src/store/useAuditStore.ts"
+      ]
+    },
+    "ProgressProps": {
+      "defined_in": "src/components/ui/Progress.tsx",
+      "kind": "interface",
+      "used_in": []
+    },
+    "Recommendation": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": [
+        "src/components/AuditOverview.tsx",
+        "src/components/PriorityMatrix.tsx",
+        "src/components/RemediationLab.tsx",
+        "src/components/RemediationView.tsx",
+        "src/lib/gemini.ts"
+      ]
+    },
+    "SelectProps": {
+      "defined_in": "src/components/ui/Select.tsx",
+      "kind": "interface",
+      "used_in": []
+    },
+    "Source": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": []
+    },
+    "SourceType": {
+      "defined_in": "src/types.ts",
+      "kind": "type",
+      "used_in": []
+    },
+    "SwitchProps": {
+      "defined_in": "src/components/ui/Switch.tsx",
+      "kind": "interface",
+      "used_in": []
+    },
+    "TextareaProps": {
+      "defined_in": "src/components/ui/Textarea.tsx",
+      "kind": "interface",
+      "used_in": []
+    }
+  }
+}

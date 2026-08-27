@@ -1,0 +1,458 @@
+{
+  "_meta": {
+    "generated": "2026-08-27 10:22 UTC",
+    "total_symbols": 90
+  },
+  "symbols": {
+    "GET /api/health": {
+      "file": "server.ts",
+      "line": 74,
+      "kind": "route"
+    },
+    "POST /api/v1/generate-audit": {
+      "file": "server.ts",
+      "line": 77,
+      "kind": "route"
+    },
+    "POST /api/v1/generate-variations": {
+      "file": "server.ts",
+      "line": 237,
+      "kind": "route"
+    },
+    "GET /api/v1/audits/:auditId/export": {
+      "file": "server.ts",
+      "line": 297,
+      "kind": "route"
+    },
+    "GET *": {
+      "file": "server.ts",
+      "line": 316,
+      "kind": "route"
+    },
+    "AuditMode": {
+      "file": "src/types.ts",
+      "line": 5,
+      "kind": "type"
+    },
+    "AuditInput": {
+      "file": "src/types.ts",
+      "line": 16,
+      "kind": "type"
+    },
+    "SourceType": {
+      "file": "src/types.ts",
+      "line": 29,
+      "kind": "type"
+    },
+    "Source": {
+      "file": "src/types.ts",
+      "line": 47,
+      "kind": "type"
+    },
+    "EvidenceRef": {
+      "file": "src/types.ts",
+      "line": 57,
+      "kind": "type"
+    },
+    "Insight": {
+      "file": "src/types.ts",
+      "line": 64,
+      "kind": "type"
+    },
+    "GeneratedAsset": {
+      "file": "src/types.ts",
+      "line": 85,
+      "kind": "type"
+    },
+    "Recommendation": {
+      "file": "src/types.ts",
+      "line": 104,
+      "kind": "type"
+    },
+    "AuditScores": {
+      "file": "src/types.ts",
+      "line": 122,
+      "kind": "type"
+    },
+    "ComparisonFinding": {
+      "file": "src/types.ts",
+      "line": 133,
+      "kind": "type"
+    },
+    "AuditReport": {
+      "file": "src/components/AuditReport.tsx",
+      "line": 7,
+      "kind": "function"
+    },
+    "AuditStatus": {
+      "file": "src/types.ts",
+      "line": 157,
+      "kind": "type"
+    },
+    "AuditRecord": {
+      "file": "src/types.ts",
+      "line": 159,
+      "kind": "type"
+    },
+    "cn": {
+      "file": "src/lib/utils.ts",
+      "line": 4,
+      "kind": "function"
+    },
+    "formatDate": {
+      "file": "src/lib/utils.ts",
+      "line": 8,
+      "kind": "function"
+    },
+    "FirestoreErrorInfo": {
+      "file": "src/lib/firebaseErrors.ts",
+      "line": 12,
+      "kind": "interface"
+    },
+    "OperationType": {
+      "file": "src/lib/firebaseErrors.ts",
+      "line": 3,
+      "kind": "enum"
+    },
+    "handleFirestoreError": {
+      "file": "src/lib/firebaseErrors.ts",
+      "line": 29,
+      "kind": "function"
+    },
+    "AuditState": {
+      "file": "src/store/useAuditStore.ts",
+      "line": 8,
+      "kind": "interface"
+    },
+    "useFirebaseAuth": {
+      "file": "src/hooks/useFirebaseAuth.ts",
+      "line": 10,
+      "kind": "function"
+    },
+    "AuditProgress": {
+      "file": "src/components/AuditProgress.tsx",
+      "line": 16,
+      "kind": "function"
+    },
+    "ExportActions": {
+      "file": "src/components/ExportActions.tsx",
+      "line": 7,
+      "kind": "function"
+    },
+    "AuditOverview": {
+      "file": "src/components/AuditOverview.tsx",
+      "line": 49,
+      "kind": "function"
+    },
+    "FindingsPanel": {
+      "file": "src/components/FindingsPanel.tsx",
+      "line": 8,
+      "kind": "function"
+    },
+    "ReportHeader": {
+      "file": "src/components/ReportHeader.tsx",
+      "line": 10,
+      "kind": "function"
+    },
+    "AuditFormData": {
+      "file": "src/components/AuditLauncher.tsx",
+      "line": 26,
+      "kind": "type"
+    },
+    "AuditLauncher": {
+      "file": "src/components/AuditLauncher.tsx",
+      "line": 28,
+      "kind": "function"
+    },
+    "PriorityMatrix": {
+      "file": "src/components/PriorityMatrix.tsx",
+      "line": 9,
+      "kind": "function"
+    },
+    "Dashboard": {
+      "file": "src/components/Dashboard.tsx",
+      "line": 20,
+      "kind": "function"
+    },
+    "ContentMessagingView": {
+      "file": "src/components/ContentMessagingView.tsx",
+      "line": 9,
+      "kind": "function"
+    },
+    "DocsGithubView": {
+      "file": "src/components/DocsGithubView.tsx",
+      "line": 9,
+      "kind": "function"
+    },
+    "CreativeView": {
+      "file": "src/components/CreativeView.tsx",
+      "line": 12,
+      "kind": "function"
+    },
+    "OnboardingStep": {
+      "file": "src/components/Onboarding.tsx",
+      "line": 8,
+      "kind": "interface"
+    },
+    "Onboarding": {
+      "file": "src/components/Onboarding.tsx",
+      "line": 15,
+      "kind": "function"
+    },
+    "CreativeLab": {
+      "file": "src/components/CreativeLab.tsx",
+      "line": 11,
+      "kind": "function"
+    },
+    "RemediationLab": {
+      "file": "src/components/RemediationLab.tsx",
+      "line": 11,
+      "kind": "function"
+    },
+    "Remediation": {
+      "file": "src/components/RemediationLab.tsx",
+      "line": 109,
+      "kind": "function"
+    },
+    "CompetitorView": {
+      "file": "src/components/CompetitorView.tsx",
+      "line": 10,
+      "kind": "function"
+    },
+    "RoleMetadata": {
+      "file": "src/components/RemediationView.tsx",
+      "line": 12,
+      "kind": "interface"
+    },
+    "CodePlaygroundProps": {
+      "file": "src/components/RemediationView.tsx",
+      "line": 22,
+      "kind": "interface"
+    },
+    "RoleType": {
+      "file": "src/components/RemediationView.tsx",
+      "line": 10,
+      "kind": "type"
+    },
+    "CodePlayground": {
+      "file": "src/components/RemediationView.tsx",
+      "line": 27,
+      "kind": "function"
+    },
+    "RemediationView": {
+      "file": "src/components/RemediationView.tsx",
+      "line": 136,
+      "kind": "function"
+    },
+    "EvidenceView": {
+      "file": "src/components/EvidenceView.tsx",
+      "line": 10,
+      "kind": "function"
+    },
+    "SettingsView": {
+      "file": "src/components/SettingsView.tsx",
+      "line": 12,
+      "kind": "function"
+    },
+    "AuditTabs": {
+      "file": "src/components/AuditTabs.tsx",
+      "line": 15,
+      "kind": "function"
+    },
+    "EvidenceExplorer": {
+      "file": "src/components/EvidenceExplorer.tsx",
+      "line": 10,
+      "kind": "function"
+    },
+    "TechnicalSEOView": {
+      "file": "src/components/TechnicalSEOView.tsx",
+      "line": 9,
+      "kind": "function"
+    },
+    "ScoreCards": {
+      "file": "src/components/ScoreCards.tsx",
+      "line": 7,
+      "kind": "function"
+    },
+    "HistorySidebar": {
+      "file": "src/components/HistorySidebar.tsx",
+      "line": 15,
+      "kind": "function"
+    },
+    "HistoryView": {
+      "file": "src/components/HistoryView.tsx",
+      "line": 10,
+      "kind": "function"
+    },
+    "Layout": {
+      "file": "src/components/ui/Layout.tsx",
+      "line": 5,
+      "kind": "function"
+    },
+    "Container": {
+      "file": "src/components/ui/Layout.tsx",
+      "line": 19,
+      "kind": "function"
+    },
+    "PageTransition": {
+      "file": "src/components/ui/Layout.tsx",
+      "line": 33,
+      "kind": "function"
+    },
+    "Toast": {
+      "file": "src/components/ui/Toast.tsx",
+      "line": 9,
+      "kind": "interface"
+    },
+    "ToastStore": {
+      "file": "src/components/ui/Toast.tsx",
+      "line": 15,
+      "kind": "interface"
+    },
+    "ToastType": {
+      "file": "src/components/ui/Toast.tsx",
+      "line": 7,
+      "kind": "type"
+    },
+    "Toaster": {
+      "file": "src/components/ui/Toast.tsx",
+      "line": 34,
+      "kind": "function"
+    },
+    "CheckboxProps": {
+      "file": "src/components/ui/Checkbox.tsx",
+      "line": 5,
+      "kind": "interface"
+    },
+    "SwitchProps": {
+      "file": "src/components/ui/Switch.tsx",
+      "line": 4,
+      "kind": "interface"
+    },
+    "TooltipProps": {
+      "file": "src/components/ui/Tooltip.tsx",
+      "line": 5,
+      "kind": "interface"
+    },
+    "Tooltip": {
+      "file": "src/components/ui/Tooltip.tsx",
+      "line": 11,
+      "kind": "function"
+    },
+    "DropdownMenuContextProps": {
+      "file": "src/components/ui/DropdownMenu.tsx",
+      "line": 5,
+      "kind": "interface"
+    },
+    "DropdownMenu": {
+      "file": "src/components/ui/DropdownMenu.tsx",
+      "line": 12,
+      "kind": "function"
+    },
+    "DropdownMenuTrigger": {
+      "file": "src/components/ui/DropdownMenu.tsx",
+      "line": 21,
+      "kind": "function"
+    },
+    "DropdownMenuContent": {
+      "file": "src/components/ui/DropdownMenu.tsx",
+      "line": 43,
+      "kind": "function"
+    },
+    "DropdownMenuItem": {
+      "file": "src/components/ui/DropdownMenu.tsx",
+      "line": 83,
+      "kind": "function"
+    },
+    "SelectProps": {
+      "file": "src/components/ui/Select.tsx",
+      "line": 4,
+      "kind": "interface"
+    },
+    "TextareaProps": {
+      "file": "src/components/ui/Textarea.tsx",
+      "line": 4,
+      "kind": "interface"
+    },
+    "BadgeProps": {
+      "file": "src/components/ui/Badge.tsx",
+      "line": 4,
+      "kind": "interface"
+    },
+    "Navbar": {
+      "file": "src/components/ui/Navbar.tsx",
+      "line": 15,
+      "kind": "function"
+    },
+    "TabsContextProps": {
+      "file": "src/components/ui/Tabs.tsx",
+      "line": 4,
+      "kind": "interface"
+    },
+    "Tabs": {
+      "file": "src/components/ui/Tabs.tsx",
+      "line": 11,
+      "kind": "function"
+    },
+    "TabsList": {
+      "file": "src/components/ui/Tabs.tsx",
+      "line": 44,
+      "kind": "function"
+    },
+    "TabsTrigger": {
+      "file": "src/components/ui/Tabs.tsx",
+      "line": 63,
+      "kind": "function"
+    },
+    "TabsContent": {
+      "file": "src/components/ui/Tabs.tsx",
+      "line": 93,
+      "kind": "function"
+    },
+    "InputProps": {
+      "file": "src/components/ui/Input.tsx",
+      "line": 4,
+      "kind": "interface"
+    },
+    "Footer": {
+      "file": "src/components/ui/Footer.tsx",
+      "line": 4,
+      "kind": "function"
+    },
+    "ButtonProps": {
+      "file": "src/components/ui/Button.tsx",
+      "line": 4,
+      "kind": "interface"
+    },
+    "Dialog": {
+      "file": "src/components/ui/Dialog.tsx",
+      "line": 6,
+      "kind": "function"
+    },
+    "DialogHeader": {
+      "file": "src/components/ui/Dialog.tsx",
+      "line": 46,
+      "kind": "function"
+    },
+    "DialogTitle": {
+      "file": "src/components/ui/Dialog.tsx",
+      "line": 60,
+      "kind": "function"
+    },
+    "DialogDescription": {
+      "file": "src/components/ui/Dialog.tsx",
+      "line": 74,
+      "kind": "function"
+    },
+    "DialogFooter": {
+      "file": "src/components/ui/Dialog.tsx",
+      "line": 88,
+      "kind": "function"
+    },
+    "ProgressProps": {
+      "file": "src/components/ui/Progress.tsx",
+      "line": 4,
+      "kind": "interface"
+    }
+  }
+}

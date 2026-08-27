@@ -1,0 +1,10 @@
+# API Routes
+# Generated: 2026-08-27 10:22 UTC
+
+
+## server.ts
+  GET      /api/health
+  POST     /api/v1/generate-audit
+  POST     /api/v1/generate-variations
+  GET      /api/v1/audits/:auditId/export
+  GET      *

@@ -1,0 +1,101 @@
+{
+  "_meta": {
+    "generated": "2026-08-27 10:22 UTC",
+    "total_functions": 60,
+    "connected_functions": 12,
+    "depth": 2,
+    "note": "Shows which functions call which others (2-level depth). Only includes functions with at least one internal connection. Use with symbol-index.json to trace call paths."
+  },
+  "graph": {
+    "AuditLauncher": {
+      "file": "src/components/AuditLauncher.tsx",
+      "line": 28,
+      "calls": [
+        "generateAuditReport"
+      ]
+    },
+    "AuditProgress": {
+      "file": "src/components/AuditProgress.tsx",
+      "line": 16,
+      "calls": [
+        "cn"
+      ]
+    },
+    "Dashboard": {
+      "file": "src/components/Dashboard.tsx",
+      "line": 20,
+      "calls": [
+        "formatDate"
+      ]
+    },
+    "HistorySidebar": {
+      "file": "src/components/HistorySidebar.tsx",
+      "line": 15,
+      "calls": [
+        "cn",
+        "formatDate"
+      ]
+    },
+    "HistoryView": {
+      "file": "src/components/HistoryView.tsx",
+      "line": 10,
+      "calls": [
+        "formatDate"
+      ]
+    },
+    "Toaster": {
+      "file": "src/components/ui/Toast.tsx",
+      "line": 34,
+      "calls": [
+        "cn"
+      ]
+    },
+    "cn": {
+      "file": "src/components/AuditProgress.tsx",
+      "line": 111,
+      "called_by": [
+        "AuditProgress",
+        "HistorySidebar",
+        "Toaster"
+      ]
+    },
+    "formatDate": {
+      "file": "src/lib/utils.ts",
+      "line": 8,
+      "called_by": [
+        "Dashboard",
+        "HistorySidebar",
+        "HistoryView"
+      ]
+    },
+    "generateAuditReport": {
+      "file": "src/lib/gemini.ts",
+      "line": 3,
+      "called_by": [
+        "AuditLauncher"
+      ]
+    },
+    "handleFirestoreError": {
+      "file": "src/lib/firebaseErrors.ts",
+      "line": 29,
+      "called_by": [
+        "if",
+        "useFirebaseAuth"
+      ]
+    },
+    "if": {
+      "file": "src/components/ui/Tabs.tsx",
+      "line": 29,
+      "calls": [
+        "handleFirestoreError"
+      ]
+    },
+    "useFirebaseAuth": {
+      "file": "src/hooks/useFirebaseAuth.ts",
+      "line": 10,
+      "calls": [
+        "handleFirestoreError"
+      ]
+    }
+  }
+}

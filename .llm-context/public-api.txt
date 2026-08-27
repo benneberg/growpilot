@@ -1,0 +1,226 @@
+# Public API (function signatures)
+# Generated: 2026-08-27 10:22 UTC
+
+
+## src/lib/utils.ts
+  function cn(...inputs: ClassValue[])
+  function formatDate(date: string | Date)
+
+## src/lib/firebaseErrors.ts
+  function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null)
+
+## src/hooks/useFirebaseAuth.ts
+  function useFirebaseAuth()
+
+## src/components/AuditProgress.tsx
+  function AuditProgress()
+
+## src/components/ExportActions.tsx
+  function ExportActions()
+
+## src/components/AuditOverview.tsx
+  function AuditOverview({ report }: { report: AuditReportType })
+
+## src/components/FindingsPanel.tsx
+  function FindingsPanel({ insights }: { insights: Insight[] })
+
+## src/components/ReportHeader.tsx
+  function ReportHeader({ auditId }: { auditId: string })
+
+## src/components/AuditReport.tsx
+  function AuditReport()
+
+## src/components/AuditLauncher.tsx
+  function AuditLauncher()
+
+## src/components/PriorityMatrix.tsx
+  function PriorityMatrix({ recommendations }: { recommendations: Recommendation[] })
+
+## src/components/Dashboard.tsx
+  function Dashboard()
+
+## src/components/ContentMessagingView.tsx
+  function ContentMessagingView({ insights }: { insights: Insight[] })
+
+## src/components/DocsGithubView.tsx
+  function DocsGithubView({ insights }: { insights: Insight[] })
+
+## src/components/CreativeView.tsx
+  function CreativeView({ report }: { report: AuditReport })
+
+## src/components/Onboarding.tsx
+  function Onboarding({ onComplete }: { onComplete: ()
+
+## src/components/CreativeLab.tsx
+  function CreativeLab({ assets }: { assets: GeneratedAsset[] })
+
+## src/components/RemediationLab.tsx
+  function RemediationLab({ recommendations }: { recommendations: Recommendation[] })
+  function Remediation()
+
+## src/components/CompetitorView.tsx
+  function CompetitorView({ comparisons }: { comparisons: ComparisonFinding[] })
+
+## src/components/RemediationView.tsx
+  function CodePlayground({ initialCode, onCopy }: CodePlaygroundProps)
+  function RemediationView({ recommendations }: { recommendations: Recommendation[] })
+
+## src/components/EvidenceView.tsx
+  function EvidenceView({ evidence }: { evidence: EvidenceRef[] })
+
+## src/components/SettingsView.tsx
+  function SettingsView()
+
+## src/components/AuditTabs.tsx
+  function AuditTabs({ report }: { report: AuditReport })
+
+## src/components/EvidenceExplorer.tsx
+  function EvidenceExplorer({ evidence }: { evidence: EvidenceRef[] })
+
+## src/components/TechnicalSEOView.tsx
+  function TechnicalSEOView({ insights }: { insights: Insight[] })
+
+## src/components/ScoreCards.tsx
+  function ScoreCards({ scores }: { scores: AuditScores })
+
+## src/components/HistorySidebar.tsx
+  function HistorySidebar()
+
+## src/components/HistoryView.tsx
+  function HistoryView()
+
+## src/components/ui/Layout.tsx
+  function Layout({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
+  function Container({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
+  function PageTransition({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
+
+## src/components/ui/Toast.tsx
+  function Toaster()
+
+## src/components/ui/Tooltip.tsx
+  function Tooltip({ content, children, className }: TooltipProps)
+
+## src/components/ui/DropdownMenu.tsx
+  function DropdownMenu({ children }: { children: React.ReactNode })
+  function DropdownMenuTrigger({ children, asChild }: { children: React.ReactNode; asChild?: boolean })
+  function DropdownMenuContent({
+  children,
+  className,
+  align = "right",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  align?: "left" | "right" | "end";
+})
+  function DropdownMenuItem({
+  children,
+  className,
+  onClick,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: ()
+
+## src/components/ui/Navbar.tsx
+  function Navbar({ 
+  onNavigate, 
+  activeView, 
+  user, 
+  onLogin, 
+  onLogout 
+}: { 
+  onNavigate: (view: any)
+
+## src/components/ui/Tabs.tsx
+  function Tabs({
+  value: controlledValue,
+  onValueChange,
+  defaultValue,
+  children,
+  className,
+}: {
+  value?: string;
+  onValueChange?: (value: string)
+  function TabsList({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
+  function TabsTrigger({
+  value,
+  children,
+  className,
+}: {
+  value: string;
+  children: React.ReactNode;
+  className?: string;
+})
+  function TabsContent({
+  value,
+  children,
+  className,
+}: {
+  value: string;
+  children: React.ReactNode;
+  className?: string;
+})
+
+## src/components/ui/Footer.tsx
+  function Footer()
+
+## src/components/ui/Dialog.tsx
+  function Dialog({
+  open,
+  onOpenChange,
+  children,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean)
+  function DialogHeader({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
+  function DialogTitle({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
+  function DialogDescription({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
+  function DialogFooter({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+})
